@@ -25,3 +25,4 @@ d:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\refint\
 d:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\Coloured Maze.pdb
 D:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\Coloured Maze.genruntimeconfig.cache
 D:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\ref\Coloured Maze.dll
+d:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\Coloured Maze.sourcelink.json

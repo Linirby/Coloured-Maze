@@ -9,7 +9,7 @@ public class Game1 : Game
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
-    const int scale = 5;
+    const int scale = 4;
 
     Player player;
     Texture2D playerTexture;
@@ -34,7 +34,7 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         playerTexture = Content.Load<Texture2D>("player");
-        player = new Player(playerTexture, new Vector2(0, 0), scale);
+        player = new Player(playerTexture, new Vector2(0, 0), scale, _graphics);
     }
 
     protected override void Update(GameTime gameTime)
