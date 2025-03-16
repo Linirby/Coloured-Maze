@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/Users/adamb/Bureau/DevProject/Monogame/Coloured Maze/Content/../assets/player.png","D:/Users/adamb/Bureau/DevProject/Monogame/Coloured Maze/Content/bin/DesktopGL/Content/player.xnb","TextureProcessor","Texture2DContent",493,7253,0.2941339
+"D:/Users/adamb/Bureau/DevProject/Monogame/Coloured Maze/Content/../assets/white_walls.png","D:/Users/adamb/Bureau/DevProject/Monogame/Coloured Maze/Content/bin/DesktopGL/Content/white_walls.xnb","TextureProcessor","Texture2DContent",247,7253,0.0022403
