@@ -13,6 +13,12 @@ public class Game1 : Game
 
     Player player;
     Texture2D playerTexture;
+    int colorPlayerId;
+
+    Wall tempWall;
+    Texture2D wallTexture;
+    int colorWallId;
+    int wallId;
 
     public Game1()
     {
@@ -34,7 +40,13 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         playerTexture = Content.Load<Texture2D>("player");
-        player = new Player(playerTexture, new Vector2(0, 0), scale, _graphics);
+        colorPlayerId = 6;
+        player = new Player(playerTexture, new Vector2(0, 0), colorPlayerId, scale, _graphics);
+
+        wallTexture = Content.Load<Texture2D>("white_walls");
+        colorWallId = 0;
+        wallId = 3;
+        tempWall = new Wall(wallTexture, new Vector2(100, 0), colorWallId, wallId, scale);
     }
 
     protected override void Update(GameTime gameTime)
@@ -56,6 +68,7 @@ public class Game1 : Game
         // TODO: Add your drawing code here
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
         player.Draw(_spriteBatch);
+        tempWall.Draw(_spriteBatch);
         _spriteBatch.End();
 
         base.Draw(gameTime);

@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Users/adamb/Bureau/DevProject/Monogame/Coloured Maze/Content/../assets/player.png</File>
-    <File>D:/Users/adamb/Bureau/DevProject/Monogame/Coloured Maze/Content/../assets/white_walls.png</File>
+    <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/player.png</File>
+    <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/white_walls.png</File>
   </SourceFiles>
   <DestFiles>
     <File>player.png</File>

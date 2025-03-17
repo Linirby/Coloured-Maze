@@ -1,5 +1,3 @@
-using System;
-using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -25,13 +23,14 @@ namespace Coloured_Maze
 
         int colorId = 0; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
 
-        public Player(Texture2D texture, Vector2 position, int scale, GraphicsDeviceManager graphics)
+        public Player(Texture2D texture, Vector2 position, int colorId, int scale, GraphicsDeviceManager graphics)
         {
             this.texture = texture;
             this.position = position;
+            this.colorId = colorId;
             _graphics = graphics;
             rect = new Rectangle((int)position.X, (int)position.Y, spriteWidth * scale, spriteHeight * scale);
-            sourceRect = rect;
+            sourceRect = new Rectangle(spriteWidth*colorId, 0, spriteWidth, spriteHeight );
         }
 
         public void Inputs(KeyboardState keyboardState)

@@ -238,24 +238,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adamb\\.nuget\\packages\\": {}
+    "C:\\Users\\Linirby\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\adamb\\Bureau\\DevProject\\Monogame\\Coloured Maze\\Coloured Maze.csproj",
+      "projectUniqueName": "C:\\Users\\Linirby\\OneDrive\\Documents\\GitHub\\Coloured-Maze\\Coloured Maze.csproj",
       "projectName": "Coloured Maze",
-      "projectPath": "D:\\Users\\adamb\\Bureau\\DevProject\\Monogame\\Coloured Maze\\Coloured Maze.csproj",
-      "packagesPath": "C:\\Users\\adamb\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\adamb\\Bureau\\DevProject\\Monogame\\Coloured Maze\\obj\\",
+      "projectPath": "C:\\Users\\Linirby\\OneDrive\\Documents\\GitHub\\Coloured-Maze\\Coloured Maze.csproj",
+      "packagesPath": "C:\\Users\\Linirby\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Linirby\\OneDrive\\Documents\\GitHub\\Coloured-Maze\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "D:\\Users\\adamb\\AppData\\NuGet\\NuGet.Config"
+        "C:\\Users\\Linirby\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
