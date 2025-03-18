@@ -8,12 +8,11 @@ namespace Coloured_Maze
     {
         Texture2D texture;
         Vector2 position;
-        Rectangle rect;
+        public Rectangle rect;
         Rectangle sourceRect;
 
         int spriteWidth = 16;
         int spriteHeight = 16;
-        int numberOfSprite = 7;
 
         int colorId = 0; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
         int wallId = 1; // 1: single, 2: left, 3: right, 4: bottom, 5: top, 6: horizontal, 7: vertical
@@ -25,12 +24,17 @@ namespace Coloured_Maze
             this.colorId = colorId;
             this.wallId = wallId;
             rect = new Rectangle((int)position.X, (int)position.Y, spriteWidth * scale, spriteHeight * scale);
-            sourceRect = new Rectangle(spriteWidth*(wallId-1), spriteHeight*(colorId), spriteWidth, spriteHeight);
+            sourceRect = new Rectangle(spriteWidth*(wallId-1), spriteHeight*colorId, spriteWidth, spriteHeight);
+        }
+
+        public void SpriteUpdate()
+        {
+            sourceRect = new Rectangle(spriteWidth*(wallId-1), spriteHeight*colorId, spriteWidth, spriteHeight);
         }
 
         public void Update()
         {
-
+            SpriteUpdate();
         }
 
         public void Draw(SpriteBatch spriteBatch)
