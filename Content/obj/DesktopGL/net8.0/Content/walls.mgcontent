@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/white_walls.png</SourceFile>
-  <SourceTime>2025-03-17T15:41:23.4963897+01:00</SourceTime>
-  <DestFile>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/Content/white_walls.xnb</DestFile>
-  <DestTime>2025-03-17T15:43:15.0596002+01:00</DestTime>
+  <SourceFile>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/walls.png</SourceFile>
+  <SourceTime>2025-03-17T16:52:48.0357814+01:00</SourceTime>
+  <DestFile>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/Content/walls.xnb</DestFile>
+  <DestTime>2025-03-17T16:54:17.0815694+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T19:05:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

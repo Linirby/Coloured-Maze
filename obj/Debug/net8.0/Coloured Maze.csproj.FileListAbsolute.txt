@@ -27,7 +27,6 @@ D:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\Coloure
 D:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\ref\Coloured Maze.dll
 d:\Users\adamb\Bureau\DevProject\Monogame\Coloured Maze\obj\Debug\net8.0\Coloured Maze.sourcelink.json
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Content\player.xnb
-C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Content\white_walls.xnb
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Coloured Maze.exe
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Coloured Maze.deps.json
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Coloured Maze.runtimeconfig.json
@@ -54,3 +53,4 @@ C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\obj\Debug\net8.0\refint
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\obj\Debug\net8.0\Coloured Maze.pdb
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\obj\Debug\net8.0\Coloured Maze.genruntimeconfig.cache
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\obj\Debug\net8.0\ref\Coloured Maze.dll
+C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Content\walls.xnb

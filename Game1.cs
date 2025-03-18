@@ -43,7 +43,7 @@ public class Game1 : Game
         colorPlayerId = 6;
         player = new Player(playerTexture, new Vector2(0, 0), colorPlayerId, scale, _graphics);
 
-        wallTexture = Content.Load<Texture2D>("white_walls");
+        wallTexture = Content.Load<Texture2D>("walls");
         colorWallId = 0;
         wallId = 3;
         tempWall = new Wall(wallTexture, new Vector2(100, 0), colorWallId, wallId, scale);

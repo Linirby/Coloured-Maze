@@ -25,7 +25,7 @@ namespace Coloured_Maze
             this.colorId = colorId;
             this.wallId = wallId;
             rect = new Rectangle((int)position.X, (int)position.Y, spriteWidth * scale, spriteHeight * scale);
-            sourceRect = new Rectangle(spriteWidth*(wallId-1), 0, spriteWidth, spriteHeight);
+            sourceRect = new Rectangle(spriteWidth*(wallId-1), spriteHeight*(colorId), spriteWidth, spriteHeight);
         }
 
         public void Update()

@@ -5,10 +5,10 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/player.png</File>
-    <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/white_walls.png</File>
+    <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/walls.png</File>
   </SourceFiles>
   <DestFiles>
     <File>player.png</File>
-    <File>white_walls.png</File>
+    <File>walls.png</File>
   </DestFiles>
 </SourceFileCollection>
