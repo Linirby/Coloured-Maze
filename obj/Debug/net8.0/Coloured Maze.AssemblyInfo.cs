@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Coloured Maze")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7adf4c07acfcaa5c848e1d9c6fbabe6769cfcd87")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58da33133ffa2854bd06458eabfc8167a672809a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Coloured Maze")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Coloured Maze")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

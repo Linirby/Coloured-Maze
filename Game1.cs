@@ -21,6 +21,9 @@ public class Game1 : Game
     Texture2D colorPadTexture;
     List<ColorPad> colorPads = new List<ColorPad>();
 
+    Goal goal;
+    Texture2D goalTexture;
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -47,6 +50,7 @@ public class Game1 : Game
         wallTexture = Content.Load<Texture2D>("walls");
         colorPadTexture = Content.Load<Texture2D>("colorPads");
         playerTexture = Content.Load<Texture2D>("player");
+        goalTexture = Content.Load<Texture2D>("goals");
         // colorWallId = 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
         // wallId = 1: single, 2: left, 3: right, 4: bottom, 5: top, 6: horizontal, 7: vertical
         walls.Add(new Wall(wallTexture, new Vector2(5, 0), colorId: 0, wallId: 2, scale));
@@ -78,6 +82,7 @@ public class Game1 : Game
         colorPads.Add(new ColorPad(colorPadTexture, new Vector2(7, 4), colorId: 1, scale));
 
         player = new Player(playerTexture, new Vector2(9, 9), colorId: 0, scale, _graphics, walls, colorPads);
+        goal = new Goal(goalTexture, new Vector2(0, 0), colorId: 1, scale);
     }
 
     protected override void Update(GameTime gameTime)
@@ -96,6 +101,7 @@ public class Game1 : Game
             colorPad.Update();
         }
         player.Update(gameTime, keyboardState);
+        goal.Update();
 
         base.Update(gameTime);
     }
@@ -115,6 +121,7 @@ public class Game1 : Game
         {
             colorPad.Draw(_spriteBatch);
         }
+        goal.Draw(_spriteBatch);
         player.Draw(_spriteBatch);
 
         _spriteBatch.End();

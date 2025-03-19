@@ -38,7 +38,7 @@ namespace Coloured_Maze
             this.walls = walls;
             this.colorPads = colorPads; 
             rect = new Rectangle((int)position.X*spriteWidth*scale, (int)position.Y*spriteHeight*scale, spriteWidth * scale, spriteHeight * scale);
-            sourceRect = new Rectangle(spriteWidth*colorId, 0, spriteWidth, spriteHeight );
+            sourceRect = new Rectangle(spriteWidth*colorId, 0, spriteWidth, spriteHeight);
         }
 
         public void Inputs(KeyboardState keyboardState)
