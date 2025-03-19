@@ -50,20 +50,20 @@ public class Game1 : Game
         walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 0*(tileSize*scale)), colorId: 0, wallId: 6, scale));
         walls.Add(new Wall(wallTexture, new Vector2(7*(tileSize*scale), 0*(tileSize*scale)), colorId: 0, wallId: 3, scale));
 
-        walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 1*(tileSize*scale)), colorId: 0, wallId: 5, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 2*(tileSize*scale)), colorId: 0, wallId: 7, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 3*(tileSize*scale)), colorId: 0, wallId: 4, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(0*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 2, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(1*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 6, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 3, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 1*(tileSize*scale)), colorId: 0, wallId: 5, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 2*(tileSize*scale)), colorId: 0, wallId: 7, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 3*(tileSize*scale)), colorId: 0, wallId: 4, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(0*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 2, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(1*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 6, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(2*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 3, scale));
 
-        walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 5, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 5*(tileSize*scale)), colorId: 0, wallId: 7, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 7, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 7*(tileSize*scale)), colorId: 0, wallId: 4, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(7*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 2, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(8*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 6, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(9*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 3, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 4*(tileSize*scale)), colorId: 0, wallId: 5, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 5*(tileSize*scale)), colorId: 0, wallId: 7, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 7, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(6*(tileSize*scale), 7*(tileSize*scale)), colorId: 0, wallId: 4, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(7*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 2, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(8*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 6, scale));
+        //walls.Add(new Wall(wallTexture, new Vector2(9*(tileSize*scale), 6*(tileSize*scale)), colorId: 0, wallId: 3, scale));
 
         playerTexture = Content.Load<Texture2D>("player");
         player = new Player(playerTexture, new Vector2(9*(tileSize*scale), 9*(tileSize*scale)), colorId: 1, scale, _graphics, walls);
