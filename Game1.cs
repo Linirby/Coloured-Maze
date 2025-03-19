@@ -18,6 +18,9 @@ public class Game1 : Game
     Texture2D wallTexture;
     List<Wall> walls = new List<Wall>();
 
+    Texture2D colorPadTexture;
+    List<ColorPad> colorPads = new List<ColorPad>();
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -42,6 +45,8 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         wallTexture = Content.Load<Texture2D>("walls");
+        colorPadTexture = Content.Load<Texture2D>("colorPads");
+        playerTexture = Content.Load<Texture2D>("player");
         // colorWallId = 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
         // wallId = 1: single, 2: left, 3: right, 4: bottom, 5: top, 6: horizontal, 7: vertical
         walls.Add(new Wall(wallTexture, new Vector2(5, 0), colorId: 0, wallId: 2, scale));
@@ -68,8 +73,11 @@ public class Game1 : Game
         walls.Add(new Wall(wallTexture, new Vector2(2, 7), colorId: 0, wallId: 1, scale));
         walls.Add(new Wall(wallTexture, new Vector2(4, 7), colorId: 0, wallId: 1, scale));
 
-        playerTexture = Content.Load<Texture2D>("player");
-        player = new Player(playerTexture, new Vector2(9, 9), colorId: 1, scale, _graphics, walls);
+        colorPads.Add(new ColorPad(colorPadTexture, new Vector2(2, 5), colorId: 3, scale));
+        colorPads.Add(new ColorPad(colorPadTexture, new Vector2(5, 6), colorId: 0, scale));
+        colorPads.Add(new ColorPad(colorPadTexture, new Vector2(7, 4), colorId: 1, scale));
+
+        player = new Player(playerTexture, new Vector2(9, 9), colorId: 0, scale, _graphics, walls, colorPads);
     }
 
     protected override void Update(GameTime gameTime)
@@ -83,6 +91,10 @@ public class Game1 : Game
         {
             wall.Update();
         }
+        foreach (ColorPad colorPad in colorPads)
+        {
+            colorPad.Update();
+        }
         player.Update(gameTime, keyboardState);
 
         base.Update(gameTime);
@@ -94,11 +106,17 @@ public class Game1 : Game
 
         // TODO: Add your drawing code here
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+
         foreach (Wall wall in walls)
         {
             wall.Draw(_spriteBatch);
         }
+        foreach (ColorPad colorPad in colorPads)
+        {
+            colorPad.Draw(_spriteBatch);
+        }
         player.Draw(_spriteBatch);
+
         _spriteBatch.End();
 
         base.Draw(gameTime);

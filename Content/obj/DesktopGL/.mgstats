@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/colorPads.png","c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/colorPads.xnb","TextureProcessor","Texture2DContent",239,7253,0,313393
+"c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/player.png","c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/player.xnb","TextureProcessor","Texture2DContent",493,7253,0,0068472
+"c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/walls.png","c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/walls.xnb","TextureProcessor","Texture2DContent",1026,50261,0,0224461

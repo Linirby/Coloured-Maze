@@ -11,7 +11,6 @@ namespace Coloured_Maze
         private GraphicsDeviceManager _graphics;
 
         Texture2D texture;
-        Vector2 position;
         Rectangle rect;
         Rectangle sourceRect;
 
@@ -29,14 +28,15 @@ namespace Coloured_Maze
         int colorId = 0; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
 
         List<Wall> walls;
+        List<ColorPad> colorPads;
 
-        public Player(Texture2D texture, Vector2 position, int colorId, int scale, GraphicsDeviceManager graphics, List<Wall> walls)
+        public Player(Texture2D texture, Vector2 position, int colorId, int scale, GraphicsDeviceManager graphics, List<Wall> walls, List<ColorPad> colorPads)
         {
             this.texture = texture;
-            this.position = position;
             this.colorId = colorId;
             _graphics = graphics;
             this.walls = walls;
+            this.colorPads = colorPads; 
             rect = new Rectangle((int)position.X*spriteWidth*scale, (int)position.Y*spriteHeight*scale, spriteWidth * scale, spriteHeight * scale);
             sourceRect = new Rectangle(spriteWidth*colorId, 0, spriteWidth, spriteHeight );
         }
@@ -67,7 +67,6 @@ namespace Coloured_Maze
                 canGoLeft = true;
                 canGoRight = true;
                 canGoUp = true;
-                Console.WriteLine("I'm Falling! Oh nah I'm just going down -_-");
             }
             if (keyboardState.IsKeyDown(Keys.Up) && canGoUp && !canMove && !(rect.Top <= 0))
             {
@@ -76,6 +75,58 @@ namespace Coloured_Maze
                 canGoLeft = true;
                 canGoDown = true;
                 canGoRight = true;
+            }
+        }
+
+        public void WallsCollisions()
+        {
+            foreach (Wall wall in walls)
+            {
+                if (rect.Intersects(wall.rect))
+                {   
+                    canMove = false;
+
+                    if (direction.X == 1 && rect.Right >= wall.rect.Left)
+                    {
+                        rect.X = wall.rect.Left - rect.Width;
+                        direction.X = 0;
+                        canGoRight = false;
+                        break;
+                    }
+                    if (direction.X == -1 && rect.Left <= wall.rect.Right)
+                    {
+                        rect.X = wall.rect.Right;
+                        direction.X = 0;
+                        canGoLeft = false;
+                        break;
+                    }
+
+                    if (direction.Y == 1 && rect.Bottom > wall.rect.Top)
+                    {
+                        rect.Y = wall.rect.Top - rect.Width;
+                        direction.Y = 0;
+                        canGoDown = false;
+                        break;
+                    }
+                    if (direction.Y == -1 && rect.Top < wall.rect.Bottom)
+                    {
+                        rect.Y = wall.rect.Bottom;
+                        direction.Y = 0;
+                        canGoUp = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void ColorPadsCollisions()
+        {
+            foreach (ColorPad colorPad in colorPads)
+            {
+                if (rect.Intersects(colorPad.rect))
+                {
+                    colorId = colorPad.colorId;
+                }
             }
         }
 
@@ -92,46 +143,8 @@ namespace Coloured_Maze
                 direction.Y = 0;
                 canMove = false;
             }
-
-            foreach (Wall wall in walls)
-            {
-                if (rect.Intersects(wall.rect))
-                {   
-                    if (direction.X == 1 && rect.Right >= wall.rect.Left)
-                    {
-                        rect.X = wall.rect.Left - rect.Width;
-                        direction.X = 0;
-                        canMove = false;
-                        canGoRight = false;
-                        break;
-                    }
-                    if (direction.X == -1 && rect.Left <= wall.rect.Right)
-                    {
-                        rect.X = wall.rect.Right;
-                        direction.X = 0;
-                        canMove = false;
-                        canGoLeft = false;
-                        break;
-                    }
-                    if (direction.Y == 1 && rect.Bottom > wall.rect.Top)
-                    {
-                        rect.Y = wall.rect.Top - rect.Width;
-                        direction.Y = 0;
-                        canMove = false;
-                        canGoDown = false;
-                        break;
-                    }
-                    if (direction.Y == -1 && rect.Top < wall.rect.Bottom)
-                    {
-                        rect.Y = wall.rect.Bottom;
-                        direction.Y = 0;
-                        canMove = false;
-                        canGoUp = false;
-                        Console.WriteLine("Ouch my head !");
-                        break;
-                    }
-                }
-            }
+            WallsCollisions();
+            ColorPadsCollisions();
         }
 
         public void Mouvement(GameTime gameTime)

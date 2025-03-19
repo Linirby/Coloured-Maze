@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/colorPads.png</File>
-    <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/player.png</File>
-    <File>C:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/walls.png</File>
+    <File>c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/colorPads.png</File>
+    <File>c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/player.png</File>
+    <File>c:/Users/Linirby/OneDrive/Documents/GitHub/Coloured-Maze/Content/../assets/walls.png</File>
   </SourceFiles>
   <DestFiles>
     <File>colorPads.png</File>

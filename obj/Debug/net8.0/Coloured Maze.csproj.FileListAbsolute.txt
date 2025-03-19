@@ -54,3 +54,4 @@ C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\obj\Debug\net8.0\Colour
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\obj\Debug\net8.0\Coloured Maze.genruntimeconfig.cache
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\obj\Debug\net8.0\ref\Coloured Maze.dll
 C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Content\walls.xnb
+C:\Users\Linirby\OneDrive\Documents\GitHub\Coloured-Maze\bin\Debug\net8.0\Content\colorPads.xnb
