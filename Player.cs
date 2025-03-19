@@ -11,7 +11,7 @@ namespace Coloured_Maze
         private GraphicsDeviceManager _graphics;
 
         Texture2D texture;
-        Rectangle rect;
+        public Rectangle rect;
         Rectangle sourceRect;
 
         int spriteWidth = 16;
@@ -25,7 +25,7 @@ namespace Coloured_Maze
         bool canGoDown = true;
         bool canGoUp = true;
 
-        int colorId = 0; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
+        public int colorId = 0; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
 
         List<Wall> walls;
         List<ColorPad> colorPads;

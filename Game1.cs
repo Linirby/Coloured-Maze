@@ -89,6 +89,10 @@ public class Game1 : Game
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
+        if (goal.IsReached(player))
+        {
+            Exit();
+        }
 
         KeyboardState keyboardState = Keyboard.GetState();
         // TODO: Add your update logic here
@@ -101,7 +105,6 @@ public class Game1 : Game
             colorPad.Update();
         }
         player.Update(gameTime, keyboardState);
-        goal.Update();
 
         base.Update(gameTime);
     }

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,7 +14,7 @@ namespace Coloured_Maze
         int spriteWidth = 16;
         int spriteHeight = 16;
 
-        public int colorId; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
+        int colorId; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
 
         public Goal(Texture2D texture, Vector2 position, int colorId, int scale)
         {
@@ -23,9 +24,17 @@ namespace Coloured_Maze
             sourceRect = new Rectangle(spriteWidth*colorId, 0, spriteWidth, spriteHeight);
         }
 
-        public void Update()
+        public bool IsReached(Player player)
         {
-
+            if (player.rect.Intersects(rect) && player.colorId == colorId)
+            {
+                Console.WriteLine("Goal Reached !");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
