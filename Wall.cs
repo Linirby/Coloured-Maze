@@ -23,7 +23,7 @@ namespace Coloured_Maze
             this.position = position;
             this.colorId = colorId;
             this.wallId = wallId;
-            rect = new Rectangle((int)position.X, (int)position.Y, spriteWidth * scale, spriteHeight * scale);
+            rect = new Rectangle((int)position.X*spriteWidth*scale, (int)position.Y*spriteHeight*scale, spriteWidth * scale, spriteHeight * scale);
             sourceRect = new Rectangle(spriteWidth*(wallId-1), spriteHeight*colorId, spriteWidth, spriteHeight);
         }
 
