@@ -24,6 +24,9 @@ public class Game1 : Game
     Goal goal;
     Texture2D goalTexture;
 
+    string[,] mapTest;
+    Level levelTest;
+
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -51,51 +54,53 @@ public class Game1 : Game
         colorPadTexture = Content.Load<Texture2D>("colorPads");
         playerTexture = Content.Load<Texture2D>("player");
         goalTexture = Content.Load<Texture2D>("goals");
-        // colorWallId = 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
-        // wallId = 1: single, 2: left, 3: right, 4: bottom, 5: top, 6: horizontal, 7: vertical
-        walls.Add(new Wall(wallTexture, new Vector2(5, 0), colorId: 0, wallId: 2, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(6, 0), colorId: 0, wallId: 6, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(7, 0), colorId: 0, wallId: 3, scale));
 
-        walls.Add(new Wall(wallTexture, new Vector2(2, 1), colorId: 0, wallId: 5, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(2, 2), colorId: 0, wallId: 7, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(2, 3), colorId: 0, wallId: 4, scale));
+        // General IDs
+        // ------------------------
+        // colorId    -> 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
+        // wallId     -> 1: single, 2: left, 3: right, 4: bottom, 5: top, 6: horizontal, 7: vertical
 
-        walls.Add(new Wall(wallTexture, new Vector2(0, 4), colorId: 0, wallId: 2, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(1, 4), colorId: 0, wallId: 6, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(2, 4), colorId: 0, wallId: 3, scale));
+        // Array IDs
+        // ------------------------
+        // Void       -> "": Nothing
+        // Walls      -> "{wallId}{colorId}"
+        // Color Pads -> "c{colorId}"
+        // Player     -> "p{colorId}"
+        // Goal       -> "g{colorId}"
+        mapTest = new string[,]{
+            {"g1",""  ,""  ,""  ,""  ,"20","60","30",""  ,""  },
+            {""  ,""  ,"50",""  ,""  ,""  ,""  ,""  ,""  ,""  },
+            {""  ,""  ,"70",""  ,""  ,""  ,""  ,""  ,""  ,""  },
+            {""  ,""  ,"40",""  ,""  ,""  ,""  ,""  ,""  ,""  },
+            {"20","60","30",""  ,""  ,""  ,"50","c1",""  ,""  },
+            {""  ,""  ,"c3",""  ,""  ,""  ,"70",""  ,""  ,""  },
+            {""  ,""  ,""  ,""  ,""  ,"c0","70","20","60","30"},
+            {""  ,""  ,"10",""  ,"10",""  ,"40",""  ,""  ,""  },
+            {""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  },
+            {""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,"p0"}
+        };
+        
+        levelTest = new Level(mapTest, wallTexture, colorPadTexture, playerTexture, goalTexture, scale, _graphics);
+        var levelOutput = levelTest.Load();
 
-        walls.Add(new Wall(wallTexture, new Vector2(6, 4), colorId: 0, wallId: 5, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(6, 5), colorId: 0, wallId: 7, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(6, 6), colorId: 0, wallId: 7, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(6, 7), colorId: 0, wallId: 4, scale));
-
-        walls.Add(new Wall(wallTexture, new Vector2(7, 6), colorId: 0, wallId: 2, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(8, 6), colorId: 0, wallId: 6, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(9, 6), colorId: 0, wallId: 3, scale));
-
-        walls.Add(new Wall(wallTexture, new Vector2(2, 7), colorId: 0, wallId: 1, scale));
-        walls.Add(new Wall(wallTexture, new Vector2(4, 7), colorId: 0, wallId: 1, scale));
-
-        colorPads.Add(new ColorPad(colorPadTexture, new Vector2(2, 5), colorId: 3, scale));
-        colorPads.Add(new ColorPad(colorPadTexture, new Vector2(5, 6), colorId: 0, scale));
-        colorPads.Add(new ColorPad(colorPadTexture, new Vector2(7, 4), colorId: 1, scale));
-
-        player = new Player(playerTexture, new Vector2(9, 9), colorId: 0, scale, _graphics, walls, colorPads);
-        goal = new Goal(goalTexture, new Vector2(0, 0), colorId: 1, scale);
+        walls = levelOutput.Item1;
+        colorPads = levelOutput.Item2;
+        player = levelOutput.Item3;
+        goal = levelOutput.Item4;
     }
 
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
-        if (goal.IsReached(player))
+
+        KeyboardState keyboardState = Keyboard.GetState();
+        // TODO: Add your update logic here
+                if (goal.IsReached(player))
         {
             Exit();
         }
 
-        KeyboardState keyboardState = Keyboard.GetState();
-        // TODO: Add your update logic here
         foreach (Wall wall in walls)
         {
             wall.Update();
