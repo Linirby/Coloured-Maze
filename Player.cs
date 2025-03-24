@@ -125,7 +125,41 @@ namespace Coloured_Maze
             {
                 if (rect.Intersects(colorPad.rect))
                 {
-                    colorId = colorPad.colorId;
+                    if ((colorId == 1 && colorPad.colorId == 2) || (colorPad.colorId == 1 && colorId == 2)) // Red + Green
+                    {
+                        colorId = 6; // Yellow
+                        break;
+                    }
+                    else if ((colorId == 1 && colorPad.colorId == 3) || (colorPad.colorId == 1 && colorId == 3)) // Red + Blue
+                    {
+                        colorId = 5; // Magenta
+                        break;
+                    }
+                    else if ((colorId == 1 && colorPad.colorId == 4) || (colorPad.colorId == 1 && colorId == 4)) // Red + Cyan
+                    {
+                        colorId = 0; // White
+                        break;
+                    }
+                    else if ((colorId == 2 && colorPad.colorId == 3) || (colorPad.colorId == 2 && colorId == 3)) // Green + Blue
+                    {
+                        colorId = 4; // Cyan
+                        break;
+                    }
+                    else if ((colorId == 2 && colorPad.colorId == 5) || (colorPad.colorId == 2 && colorId == 5)) // Green + Magenta
+                    {
+                        colorId = 0; // White
+                        break;
+                    }
+                    else if ((colorId == 3 && colorPad.colorId == 6) || (colorPad.colorId == 3 && colorId == 6)) // Blue + Yellow
+                    {
+                        colorId = 0; // White
+                        break;
+                    }
+                    else if (colorId == 0 || colorPad.colorId == 0) // Anything else
+                    {
+                        colorId = colorPad.colorId;
+                        break;
+                    }
                 }
             }
         }

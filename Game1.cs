@@ -96,7 +96,7 @@ public class Game1 : Game
 
         KeyboardState keyboardState = Keyboard.GetState();
         // TODO: Add your update logic here
-                if (goal.IsReached(player))
+        if (goal.IsReached(player))
         {
             Exit();
         }
