@@ -24,6 +24,7 @@ namespace Coloured_Maze
         bool canGoLeft = true;
         bool canGoDown = true;
         bool canGoUp = true;
+        bool isCollidingWithColorPad = false;
 
         public int colorId = 0; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
 
@@ -119,7 +120,7 @@ namespace Coloured_Maze
             }
         }
 
-        public void ColorPadsCollisions()
+        public void ColorChanges()
         {
             foreach (ColorPad colorPad in colorPads)
             {
@@ -128,43 +129,76 @@ namespace Coloured_Maze
                     if ((colorId == 1 && colorPad.colorId == 2) || (colorPad.colorId == 1 && colorId == 2)) // Red + Green
                     {
                         colorId = 6; // Yellow
+                        isCollidingWithColorPad = true;
                         break;
                     }
                     else if ((colorId == 1 && colorPad.colorId == 3) || (colorPad.colorId == 1 && colorId == 3)) // Red + Blue
                     {
                         colorId = 5; // Magenta
+                        isCollidingWithColorPad = true;
                         break;
                     }
                     else if ((colorId == 1 && colorPad.colorId == 4) || (colorPad.colorId == 1 && colorId == 4)) // Red + Cyan
                     {
                         colorId = 0; // White
+                        isCollidingWithColorPad = true;
                         break;
                     }
                     else if ((colorId == 2 && colorPad.colorId == 3) || (colorPad.colorId == 2 && colorId == 3)) // Green + Blue
                     {
                         colorId = 4; // Cyan
+                        isCollidingWithColorPad = true;
                         break;
                     }
                     else if ((colorId == 2 && colorPad.colorId == 5) || (colorPad.colorId == 2 && colorId == 5)) // Green + Magenta
                     {
                         colorId = 0; // White
+                        isCollidingWithColorPad = true;
                         break;
                     }
                     else if ((colorId == 3 && colorPad.colorId == 6) || (colorPad.colorId == 3 && colorId == 6)) // Blue + Yellow
                     {
                         colorId = 0; // White
+                        isCollidingWithColorPad = true;
                         break;
                     }
-                    else if (colorId == 0 || colorPad.colorId == 0) // Anything else
+                    else // Anything else
                     {
                         colorId = colorPad.colorId;
+                        isCollidingWithColorPad = true;
                         break;
                     }
                 }
             }
         }
 
-        public void Collisions()
+        public void ColorPadsCollisions()
+        {
+            if (isCollidingWithColorPad)
+            {
+                // Check if the player is still colliding with any color pad
+                bool stillColliding = false;
+                foreach (ColorPad colorPad in colorPads)
+                {
+                    if (rect.Intersects(colorPad.rect))
+                    {
+                        stillColliding = true;
+                        break;
+                    }
+                }
+                // If the player is no longer colliding with any color pad, reset the flag
+                if (!stillColliding)
+                {
+                    isCollidingWithColorPad = false;
+                }
+            }
+            else
+            {
+                ColorChanges();
+            }
+        }
+
+        public void ScreenCollisions()
         {
             if ((direction.X == 1 && rect.Right >= _graphics.PreferredBackBufferWidth) || (direction.X == -1 && rect.Left <= 0))
             {
@@ -177,8 +211,13 @@ namespace Coloured_Maze
                 direction.Y = 0;
                 canMove = false;
             }
+        }
+
+        public void Collisions()
+        {
             WallsCollisions();
             ColorPadsCollisions();
+            ScreenCollisions();
         }
 
         public void Mouvement(GameTime gameTime)
