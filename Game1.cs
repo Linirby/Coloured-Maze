@@ -18,6 +18,9 @@ public class Game1 : Game
     Texture2D wallTexture;
     List<Wall> walls = new List<Wall>();
 
+    Texture2D glassTexture;
+    List<Glass> glassWalls = new List<Glass>();
+
     Texture2D colorPadTexture;
     List<ColorPad> colorPads = new List<ColorPad>();
 
@@ -51,42 +54,45 @@ public class Game1 : Game
 
         // TODO: use this.Content to load your game content here
         wallTexture = Content.Load<Texture2D>("walls");
+        glassTexture = Content.Load<Texture2D>("glasses");
         colorPadTexture = Content.Load<Texture2D>("colorPads");
         playerTexture = Content.Load<Texture2D>("player");
         goalTexture = Content.Load<Texture2D>("goals");
 
         // General IDs
         // ------------------------
-        // colorId    -> 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
-        // wallId     -> 1: single, 2: left, 3: right, 4: bottom, 5: top, 6: horizontal, 7: vertical
+        // colorId        -> 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
+        // wallId/glassId -> 1: single, 2: left, 3: right, 4: bottom, 5: top, 6: horizontal, 7: vertical
 
         // Array IDs
         // ------------------------
         // Void       -> "": Nothing
-        // Walls      -> "{wallId}{colorId}"
+        // Walls      -> "W{wallId}{colorId}"
+        // Glasses    -> "G{glassId}{colorId}"
         // Color Pads -> "c{colorId}"
         // Player     -> "p{colorId}"
         // Goal       -> "g{colorId}"
         mapTest = new string[,]{
-            {"g5",""  ,""  ,""  ,""  ,"20","60","30",""  ,""  },
-            {""  ,""  ,"50",""  ,""  ,""  ,""  ,""  ,""  ,""  },
-            {""  ,""  ,"70",""  ,""  ,""  ,""  ,""  ,""  ,""  },
-            {""  ,""  ,"40",""  ,""  ,""  ,""  ,""  ,""  ,""  },
-            {"20","60","30",""  ,""  ,""  ,"50","c3",""  ,""  },
-            {""  ,""  ,"c2",""  ,""  ,""  ,"70",""  ,""  ,""  },
-            {""  ,""  ,""  ,""  ,""  ,"c1","70","20","60","30"},
-            {""  ,""  ,"10",""  ,"10",""  ,"40",""  ,""  ,""  },
-            {""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  },
-            {""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,""  ,"p0"}
+            {"g5" ,""   ,""   ,""   ,""   ,"W20","W60","W30",""   ,""   },
+            {""   ,""   ,"W50",""   ,""   ,""   ,""   ,""   ,""   ,""   },
+            {""   ,""   ,"W70",""   ,""   ,""   ,""   ,""   ,""   ,""   },
+            {""   ,""   ,"W40",""   ,""   ,""   ,""   ,""   ,""   ,""   },
+            {"W20","W60","W30",""   ,""   ,""   ,"W50","c3" ,""   ,""   },
+            {""   ,""   ,"c2" ,""   ,""   ,""   ,"W70",""   ,""   ,""   },
+            {""   ,""   ,""   ,""   ,""   ,"c1" ,"W70","W20","W60","W30"},
+            {""   ,""   ,"W10" ,""   ,"G14",""   ,"W40",""   ,""   ,""   },
+            {""   ,""   ,""   ,""   ,""   ,""   ,""   ,""   ,""   ,""   },
+            {""   ,""   ,""   ,""   ,""   ,""   ,""   ,""   ,""   ,"p0" }
         };
         
-        levelTest = new Level(mapTest, wallTexture, colorPadTexture, playerTexture, goalTexture, scale, _graphics);
+        levelTest = new Level(mapTest, wallTexture, glassTexture, colorPadTexture, playerTexture, goalTexture, scale, _graphics);
         var levelOutput = levelTest.Load();
 
         walls = levelOutput.Item1;
-        colorPads = levelOutput.Item2;
-        player = levelOutput.Item3;
-        goal = levelOutput.Item4;
+        glassWalls = levelOutput.Item2;
+        colorPads = levelOutput.Item3;
+        player = levelOutput.Item4;
+        goal = levelOutput.Item5;
     }
 
     protected override void Update(GameTime gameTime)
@@ -104,6 +110,10 @@ public class Game1 : Game
         foreach (Wall wall in walls)
         {
             wall.Update();
+        }
+        foreach (Glass glass in glassWalls)
+        {
+            glass.Update();
         }
         foreach (ColorPad colorPad in colorPads)
         {
@@ -124,6 +134,10 @@ public class Game1 : Game
         foreach (Wall wall in walls)
         {
             wall.Draw(_spriteBatch);
+        }
+        foreach (Glass glass in glassWalls)
+        {
+            glass.Draw(_spriteBatch);
         }
         foreach (ColorPad colorPad in colorPads)
         {

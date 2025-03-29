@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -29,14 +28,16 @@ namespace Coloured_Maze
         public int colorId = 0; // 0: white, 1: red, 2: green, 3: blue, 4: cyan, 5: magenta, 6: yellow
 
         List<Wall> walls;
+        List<Glass> glassWalls;
         List<ColorPad> colorPads;
 
-        public Player(Texture2D texture, Vector2 position, int colorId, int scale, GraphicsDeviceManager graphics, List<Wall> walls, List<ColorPad> colorPads)
+        public Player(Texture2D texture, Vector2 position, int colorId, int scale, GraphicsDeviceManager graphics, List<Wall> walls, List<Glass> glassWalls, List<ColorPad> colorPads)
         {
             this.texture = texture;
             this.colorId = colorId;
             _graphics = graphics;
             this.walls = walls;
+            this.glassWalls = glassWalls;
             this.colorPads = colorPads; 
             rect = new Rectangle((int)position.X*spriteWidth*scale, (int)position.Y*spriteHeight*scale, spriteWidth * scale, spriteHeight * scale);
             sourceRect = new Rectangle(spriteWidth*colorId, 0, spriteWidth, spriteHeight);
@@ -112,6 +113,47 @@ namespace Coloured_Maze
                     if (direction.Y == -1 && rect.Top < wall.rect.Bottom)
                     {
                         rect.Y = wall.rect.Bottom;
+                        direction.Y = 0;
+                        canGoUp = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void GlassesCollisions()
+        {
+            foreach (Glass glass in glassWalls)
+            {
+                if (rect.Intersects(glass.rect) && colorId != glass.colorId)
+                {   
+                    canMove = false;
+
+                    if (direction.X == 1 && rect.Right >= glass.rect.Left)
+                    {
+                        rect.X = glass.rect.Left - rect.Width;
+                        direction.X = 0;
+                        canGoRight = false;
+                        break;
+                    }
+                    if (direction.X == -1 && rect.Left <= glass.rect.Right)
+                    {
+                        rect.X = glass.rect.Right;
+                        direction.X = 0;
+                        canGoLeft = false;
+                        break;
+                    }
+
+                    if (direction.Y == 1 && rect.Bottom > glass.rect.Top)
+                    {
+                        rect.Y = glass.rect.Top - rect.Width;
+                        direction.Y = 0;
+                        canGoDown = false;
+                        break;
+                    }
+                    if (direction.Y == -1 && rect.Top < glass.rect.Bottom)
+                    {
+                        rect.Y = glass.rect.Bottom;
                         direction.Y = 0;
                         canGoUp = false;
                         break;
@@ -216,6 +258,7 @@ namespace Coloured_Maze
         public void Collisions()
         {
             WallsCollisions();
+            GlassesCollisions();
             ColorPadsCollisions();
             ScreenCollisions();
         }

@@ -1,1 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/../assets/colorPads.png","D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/Content/colorPads.xnb","TextureProcessor","Texture2DContent",239,7253,0.3725439
+"D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/../assets/glasses.png","D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/Content/glasses.xnb","TextureProcessor","Texture2DContent",1237,50261,0.3028572
+"D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/../assets/goals.png","D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/Content/goals.xnb","TextureProcessor","Texture2DContent",370,7253,0.0032087
+"D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/../assets/player.png","D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/Content/player.xnb","TextureProcessor","Texture2DContent",493,7253,0.0265586
+"D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/../assets/walls.png","D:/Users/adamb/Documents/GitHub/Coloured-Maze/Content/bin/DesktopGL/Content/walls.xnb","TextureProcessor","Texture2DContent",1026,50261,0.014227
